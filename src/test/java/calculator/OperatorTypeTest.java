@@ -36,7 +36,7 @@ public class OperatorTypeTest {
     }
 
     @Test
-    @DisplayName("noramal plus calculate case")
+    @DisplayName("normal plus calculate case")
     void testPlusCalculate() {
         Double firstOperand = 3d;
         Double secondOperand = 3d;
@@ -48,7 +48,7 @@ public class OperatorTypeTest {
     }
 
     @Test
-    @DisplayName("noramal minus calculate case")
+    @DisplayName("normal minus calculate case")
     void testMinusCalculate() {
         Double firstOperand = 3d;
         Double secondOperand = 3d;
@@ -60,7 +60,7 @@ public class OperatorTypeTest {
     }
 
     @Test
-    @DisplayName("noramal divide calculate case")
+    @DisplayName("normal divide calculate case")
     void testDivideCalculate() {
         Double firstOperand = 3d;
         Double secondOperand = 3d;
@@ -72,7 +72,7 @@ public class OperatorTypeTest {
     }
 
     @Test
-    @DisplayName("noramal multiply calculate case")
+    @DisplayName("normal multiply calculate case")
     void testMultiplyCalculate() {
         Double firstOperand = 3d;
         Double secondOperand = 3d;
