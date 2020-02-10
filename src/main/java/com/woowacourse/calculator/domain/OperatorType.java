@@ -14,27 +14,27 @@ import java.util.function.BinaryOperator;
  */
 
 public enum OperatorType {
-    PLUS("+", Double::sum),
-    MINUS("-", (firstOperand, secondOperand) -> firstOperand - secondOperand),
-    DIVIDE("/", (firstOperand, secondOperand) -> firstOperand / secondOperand),
-    MULTIPLY("*", (firstOperand, secondOperand) -> firstOperand * secondOperand);
+	PLUS("+", Double::sum),
+	MINUS("-", (firstOperand, secondOperand) -> firstOperand - secondOperand),
+	DIVIDE("/", (firstOperand, secondOperand) -> firstOperand / secondOperand),
+	MULTIPLY("*", (firstOperand, secondOperand) -> firstOperand * secondOperand);
 
-    private String operator;
-    private BinaryOperator<Double> expression;
+	private String operator;
+	private BinaryOperator<Double> expression;
 
-    OperatorType(final String operator, final BinaryOperator<Double> expression) {
-        this.operator = operator;
-        this.expression = expression;
-    }
+	OperatorType(final String operator, final BinaryOperator<Double> expression) {
+		this.operator = operator;
+		this.expression = expression;
+	}
 
-    public static OperatorType of(final String operator) {
-        return Arrays.stream(OperatorType.values())
-                .filter(value -> value.operator.equals(operator))
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("연산자에 포함되지 않습니다."));
-    }
+	public static OperatorType of(final String operator) {
+		return Arrays.stream(OperatorType.values())
+				.filter(value -> value.operator.equals(operator))
+				.findFirst()
+				.orElseThrow(() -> new IllegalArgumentException("연산자에 포함되지 않습니다."));
+	}
 
-    public double calculate(final Double firstOperand, final Double secondOperand) {
-        return expression.apply(firstOperand, secondOperand);
-    }
+	public double calculate(final Double firstOperand, final Double secondOperand) {
+		return expression.apply(firstOperand, secondOperand);
+	}
 }

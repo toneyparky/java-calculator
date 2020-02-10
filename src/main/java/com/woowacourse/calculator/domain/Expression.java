@@ -14,23 +14,23 @@ import java.util.Objects;
  */
 
 public class Expression {
-    private static final int START_INDEX = 0;
+	private static final int START_INDEX = 0;
 
-    private final List<Double> numbers;
-    
-    private final List<OperatorType> operators;
+	private final List<Double> numbers;
 
-    public Expression(final List<Double> numbers, final List<OperatorType> operators) {
-        this.numbers = Objects.requireNonNull(numbers);
-        this.operators = Objects.requireNonNull(operators);
-    }
+	private final List<OperatorType> operators;
 
-    public double calculate() {
-        double answer = numbers.get(START_INDEX);
-        for (int index = START_INDEX, end = operators.size(); index < end; ++index) {
-            OperatorType operator = operators.get(index);
-            answer = operator.calculate(answer, numbers.get(index + 1));
-        }
-        return answer;
-    }
+	public Expression(final List<Double> numbers, final List<OperatorType> operators) {
+		this.numbers = Objects.requireNonNull(numbers);
+		this.operators = Objects.requireNonNull(operators);
+	}
+
+	public double calculate() {
+		double answer = numbers.get(START_INDEX);
+		for (int index = START_INDEX, end = operators.size(); index < end; ++index) {
+			OperatorType operator = operators.get(index);
+			answer = operator.calculate(answer, numbers.get(index + 1));
+		}
+		return answer;
+	}
 }

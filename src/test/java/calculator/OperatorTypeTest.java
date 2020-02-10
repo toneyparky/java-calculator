@@ -17,70 +17,70 @@ import org.junit.jupiter.params.provider.ValueSource;
  * 날짜 : 2020/02/06
  */
 public class OperatorTypeTest {
-    @ParameterizedTest
-    @DisplayName("normal case test")
-    @ValueSource(strings = {"+", "-", "/", "*"})
-    void testOf(String value) {
-        Assertions.assertThat(OperatorType.of(value))
-                .isInstanceOf(OperatorType.class);
-    }
+	@ParameterizedTest
+	@DisplayName("normal case test")
+	@ValueSource(strings = {"+", "-", "/", "*"})
+	void testOf(String value) {
+		Assertions.assertThat(OperatorType.of(value))
+				.isInstanceOf(OperatorType.class);
+	}
 
-    @ParameterizedTest
-    @DisplayName("unexpected case test")
-    @ValueSource(strings = {"1", "**", "x", "\\", "s"})
-    void Should_ThrowException_When_WrongString(String value) {
-        Assertions.assertThatThrownBy(() -> {
-            OperatorType.of(value);
-        }).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("연산자에 포함되지 않습니다.");
-    }
+	@ParameterizedTest
+	@DisplayName("unexpected case test")
+	@ValueSource(strings = {"1", "**", "x", "\\", "s"})
+	void Should_ThrowException_When_WrongString(String value) {
+		Assertions.assertThatThrownBy(() -> {
+			OperatorType.of(value);
+		}).isInstanceOf(IllegalArgumentException.class)
+				.hasMessageContaining("연산자에 포함되지 않습니다.");
+	}
 
-    @Test
-    @DisplayName("normal plus calculate case")
-    void testPlusCalculate() {
-        Double firstOperand = 3d;
-        Double secondOperand = 3d;
-        Double result = 6d;
-        OperatorType plus = OperatorType.PLUS;
+	@Test
+	@DisplayName("normal plus calculate case")
+	void testPlusCalculate() {
+		Double firstOperand = 3d;
+		Double secondOperand = 3d;
+		Double result = 6d;
+		OperatorType plus = OperatorType.PLUS;
 
-        Assertions.assertThat(plus.calculate(firstOperand, secondOperand))
-                .isEqualTo(result);
-    }
+		Assertions.assertThat(plus.calculate(firstOperand, secondOperand))
+				.isEqualTo(result);
+	}
 
-    @Test
-    @DisplayName("normal minus calculate case")
-    void testMinusCalculate() {
-        Double firstOperand = 3d;
-        Double secondOperand = 3d;
-        Double result = (double) 0;
-        OperatorType minus = OperatorType.MINUS;
+	@Test
+	@DisplayName("normal minus calculate case")
+	void testMinusCalculate() {
+		Double firstOperand = 3d;
+		Double secondOperand = 3d;
+		Double result = (double) 0;
+		OperatorType minus = OperatorType.MINUS;
 
-        Assertions.assertThat(minus.calculate(firstOperand, secondOperand))
-                .isEqualTo(result);
-    }
+		Assertions.assertThat(minus.calculate(firstOperand, secondOperand))
+				.isEqualTo(result);
+	}
 
-    @Test
-    @DisplayName("normal divide calculate case")
-    void testDivideCalculate() {
-        Double firstOperand = 3d;
-        Double secondOperand = 3d;
-        Double result = 1d;
-        OperatorType divide = OperatorType.DIVIDE;
+	@Test
+	@DisplayName("normal divide calculate case")
+	void testDivideCalculate() {
+		Double firstOperand = 3d;
+		Double secondOperand = 3d;
+		Double result = 1d;
+		OperatorType divide = OperatorType.DIVIDE;
 
-        Assertions.assertThat(divide.calculate(firstOperand, secondOperand))
-                .isEqualTo(result);
-    }
+		Assertions.assertThat(divide.calculate(firstOperand, secondOperand))
+				.isEqualTo(result);
+	}
 
-    @Test
-    @DisplayName("normal multiply calculate case")
-    void testMultiplyCalculate() {
-        Double firstOperand = 3d;
-        Double secondOperand = 3d;
-        Double result = 9d;
-        OperatorType multiply = OperatorType.MULTIPLY;
+	@Test
+	@DisplayName("normal multiply calculate case")
+	void testMultiplyCalculate() {
+		Double firstOperand = 3d;
+		Double secondOperand = 3d;
+		Double result = 9d;
+		OperatorType multiply = OperatorType.MULTIPLY;
 
-        Assertions.assertThat(multiply.calculate(firstOperand, secondOperand))
-                .isEqualTo(result);
-    }
+		Assertions.assertThat(multiply.calculate(firstOperand, secondOperand))
+				.isEqualTo(result);
+	}
 
 }

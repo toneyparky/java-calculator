@@ -17,19 +17,19 @@ import com.woowacourse.calculator.view.OutputView;
 
 public class CalculatorController {
 
-    public void run() {
-        Expression expression = makeExpression();
-        double result = expression.calculate();
-        OutputView.printAnswer(result);
-    }
+	public void run() {
+		Expression expression = makeExpression();
+		double result = expression.calculate();
+		OutputView.printAnswer(result);
+	}
 
-    private Expression makeExpression() {
-        try {
-            String input = InputView.inputEquation();
-            return ExpressionFactory.create(input);
-        } catch (IllegalArgumentException e) {
-            OutputView.printRetryMessage(e.getMessage());
-            return makeExpression();
-        }
-    }
+	private Expression makeExpression() {
+		try {
+			String input = InputView.inputEquation();
+			return ExpressionFactory.create(input);
+		} catch (IllegalArgumentException e) {
+			OutputView.printRetryMessage(e.getMessage());
+			return makeExpression();
+		}
+	}
 }
