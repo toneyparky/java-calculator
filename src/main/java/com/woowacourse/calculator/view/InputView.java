@@ -1,6 +1,7 @@
 package com.woowacourse.calculator.view;
 
 import java.util.Scanner;
+
 /**
  * 클래스 이름 : InputView.java
  *
@@ -16,7 +17,8 @@ public class InputView {
 	private static final Scanner SCANNER = new Scanner(System.in);
 
 	// 묵시적 생성자 방지
-	private InputView() {}
+	private InputView() {
+	}
 
 	public static String inputEquation() {
 		System.out.print(INPUT_EQUATION_GUIDE_MESSAGE);

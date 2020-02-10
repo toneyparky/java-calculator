@@ -22,7 +22,8 @@ public class ExpressionFactory {
 	private static final int OPERATION_START_INDEX = 1;
 	private static final int LOOP_JUMP_COUNT = 2;
 
-	private ExpressionFactory() {}
+	private ExpressionFactory() {
+	}
 
 	public static Expression create(final String input) {
 		validateTokens(input);
